@@ -1,13 +1,15 @@
+//preview: python -m http.server
+
 let myBall;
 
 function setup() {
   createCanvas(windowWidth-100, windowHeight-100);
+  background(30);
   myBall = new Ball(width / 2, height / 2, 40);
 }
 
 function draw() {
   background(30);
-
   myBall.update();   // Calculate physics
   myBall.checkKeys(); // Check for keyboard input
   myBall.display();    // Draw the ball
@@ -19,13 +21,13 @@ class Ball {
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
     this.r = r;
-    this.topSpeed = 6;
-    this.friction = 0.96; 
+    this.topSpeed = 60;
+    this.friction = 0.99; 
   }
 
   // Method to check keyboard input and apply forces
   checkKeys() {
-    let forceMagnitude = 0.4;
+    let forceMagnitude = 12;
     
     if (keyIsDown(LEFT_ARROW))  this.applyForce(createVector(-forceMagnitude, 0));
     if (keyIsDown(RIGHT_ARROW)) this.applyForce(createVector(forceMagnitude, 0));
