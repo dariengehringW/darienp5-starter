@@ -5,7 +5,9 @@ let myBall;
 function setup() {
   createCanvas(windowWidth-100, windowHeight-100);
   background(30);
-  myBall = new Ball(width / 2, height / 2, 40);
+  myBall = new Ball (let x = random(0, 100);
+  let y = random(0, 100));
+
 }
 
 function draw() {
@@ -24,7 +26,11 @@ class Ball {
     this.topSpeed = 60;
     this.friction = 0.99; 
   }
-
+checkEdges (){
+  if(this.pos.x < 0){
+    this.pos.x = width;
+  } 
+}
   // Method to check keyboard input and apply forces
   checkKeys() {
     let forceMagnitude = 12;
@@ -63,6 +69,4 @@ class Ball {
     ellipse(this.pos(getHeight//2), this.pos(getWidth//2), this.r);
   }
 }
-function checkEdges (){
-  
-}
+
