@@ -60,6 +60,9 @@ class Ball {
   display() {
     fill(255, 150, 0);
     noStroke();
-    ellipse(this.pos.x, this.pos.y, this.r);
+    ellipse(this.pos(getHeight//2), this.pos(getWidth//2), this.r);
   }
+}
+function checkEdges (){
+  
 }
